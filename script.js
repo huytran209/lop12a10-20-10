@@ -88,7 +88,9 @@
       await audio.play();
       audioStatus.textContent = 'Đang phát · Chuyện rằng — Thịnh Suy';
     } catch (error) {
-      audioStatus.textContent = 'Chưa phát được nhạc. Hãy nhấn nút phát lại nhé.';
+      audioStatus.textContent = 'Trình duyệt chưa phát được nhạc. Kiểm tra kết nối rồi thử lại hoặc mở tệp nhạc trực tiếp.';
+      const directAudioLink = $('#directAudioLink');
+      if (directAudioLink) directAudioLink.hidden = false;
       showToast('Trình duyệt chưa phát được nhạc. Bạn thử nhấn phát thêm lần nữa nhé.');
     }
     syncMusicUI();
@@ -125,7 +127,9 @@
     currentTime.textContent = formatTime(audio.currentTime);
     if (Number.isFinite(audio.duration) && audio.duration > 0 && !seekBar.matches(':active')) seekBar.value = String((audio.currentTime / audio.duration) * 100);
   });
-  audio.addEventListener('error', () => { audioStatus.textContent = 'Không tải được nhạc. Kiểm tra thư mục assets/audio/chuyen-rang.m4a trên GitHub Pages.'; });
+  audio.addEventListener('error', () => { audioStatus.textContent = 'Không tải được tệp nhạc. Hãy kiểm tra chuyen-rang.mp3 trong repository GitHub.';
+    const directAudioLink = $('#directAudioLink');
+    if (directAudioLink) directAudioLink.hidden = false; });
   seekBar.addEventListener('input', () => {
     if (Number.isFinite(audio.duration) && audio.duration > 0) {
       audio.currentTime = (Number(seekBar.value) / 100) * audio.duration;

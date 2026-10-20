@@ -50,3 +50,6 @@
 @keyframes flowerFloat{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -5px;rotate:3deg}}
 @media(max-width:680px){.hero-no-image{min-height:0;width:min(88%,390px);padding:10px 15px 20px;margin-inline:auto}.hero-illustration-card{padding:23px 18px 21px}.hero-illustration-top{font-size:.55rem}.hero-flowers span{font-size:clamp(2.3rem,10vw,3.7rem);width:clamp(46px,15vw,70px)}.hero-illustration-copy strong{font-size:3rem}}
 @media(prefers-reduced-motion:reduce){.hero-flowers span{animation:none}}
+
+/* Direct MP3 fallback is only shown if the player cannot load/play the track. */
+.audio-direct-link{display:inline-block;margin-top:10px;color:#a65372;font-size:.78rem;font-weight:700;text-decoration:underline;text-underline-offset:3px}.audio-direct-link[hidden]{display:none}
